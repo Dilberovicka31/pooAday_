@@ -1,0 +1,16 @@
+runtime: nodejs18 # Change this to your desired Node.js version
+
+env_variables:
+  # Set any environment variables required by your application here
+  # For example:
+  # MY_ENV_VAR: "my-value"
+  DB_USER: "root"
+  DB_NAME: "poodb"
+  DB_PASS: "password"
+  DB_INSTANCE: "mysql-instance"
+
+handlers:
+  - url: /.*
+    script: auto
+
+# Specify any additional configuration settings as needed

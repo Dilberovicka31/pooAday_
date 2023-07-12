@@ -1,0 +1,59 @@
+body {
+	background: linear-gradient(90deg, #ffcbf2 0%, #c8e7ff 100%);
+	/* need to change 180deg later  */
+	background-size: cover;
+	font-family: Comfortaa;
+	font-style: normal;
+	font-weight: normal;
+
+	line-height: 54px;
+}
+#cover-caption {
+	background: transparent;
+}
+.btnIcons {
+	width: 24px;
+	height: 24px;
+}
+.custom {
+	background-color: transparent;
+	mix-blend-mode: normal;
+}
+.customBtn:hover {
+
+	mix-blend-mode: color-burn !important;
+}
+
+
+
+.btnGroup {
+	width: 100%;
+}
+
+.rating > input {
+	display: none;
+	/* makes checkbox goaway */
+}
+
+.timepicker {
+	display: flex;
+	justify-content: center;
+}
+.displayData{
+	background-color: transparent;
+	mix-blend-mode: normal;
+	
+}
+#editBtn{
+	font-size: 30px;
+}
+#deleteBtn{
+	font-size: 30px;
+}
+#dateCard{
+	font-size: 20px;
+}
+
+.timepickerContainer > gj-modal {
+	width: 270px;
+}

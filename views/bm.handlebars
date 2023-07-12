@@ -1,0 +1,345 @@
+
+		<div class="container-fluid px-0">
+			{{> nav }}
+			{{> name}}
+			<!-- when user enter new bm, each timestamp shown here  -->
+			<!-- bm form -->
+			<!-- remove this for mobile?????? -->
+			<div class="container">
+				<div class="accordion" id="accordionMain">
+					<!-- 1. time-->
+					<div class="card custom">
+						<div class="card-header" id="headingOne">
+							<h2 class="mb-0">
+								<button
+									class="btn collapsed btn-block text-dark customBtn"
+									type="button"
+									data-toggle="collapse"
+									data-target="#collapseOne"
+									aria-expanded="false"
+									aria-controls="collapseOne"
+								>
+									time 
+									<i class="bi bi-chevron-compact-down float-right"></i>
+								</button>
+							</h2>
+						</div>
+
+						<div
+							id="collapseOne"
+							class="collapse"
+							aria-labelledby="headingOne"
+							data-parent="#accordionMain"
+						>
+							<div class="card-body text-center">
+								<p>adjust time</p>
+								<!-- time picker -->
+								<div class="timepicker-container"><div class="timepicker">
+									<input id="timepicker" width="270" placeholder="" />
+								</div></div>
+								
+								<!-- <input id="timepicker" width="276" /> -->
+
+								<span>
+									<button
+										type="reset"
+										class="btn btn-sm btn-outline-secondary"
+									>
+										+ Add new
+									</button>
+								</span>
+							</div>
+						</div>
+					</div>
+					<!-- 2. style -->
+					<div class="card custom">
+						<div class="card-header" id="headingTwo">
+							<h2 class="mb-0">
+								<button
+									class="btn collapsed btn-block text-dark customBtn"
+									type="button"
+									data-toggle="collapse"
+									data-target="#collapseTwo"
+									aria-expanded="true"
+									aria-controls="collapseTwo"
+								>
+									style
+									<i class="bi bi-chevron-compact-down float-right"></i>
+								</button>
+							</h2>
+						</div>
+						<div
+							id="collapseTwo"
+							class="collapse"
+							aria-labelledby="headingTwo"
+							data-parent="#accordionMain"
+						>
+							<div class="card-body">
+								<!-- ranger slider -->
+								<!-- default value is 3 (okay) -->
+								<div class="style-range">
+									<label for="styleRange"></label>
+
+									<input
+										type="range"
+										class="form-control-range"
+										id="styleRange"
+										min="1"
+										max="5"
+										value="3"
+									/>
+									<div class="row speedText">
+										<div class="col">Liquid</div>
+										<div class="col text-center">Normal</div>
+										<div class="col text-right">Solid</div>
+									</div>
+									<div id="resultStyle" class="text-center">
+									
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 3. amount -->
+					<div class="card custom">
+						<div class="card-header" id="headingThree">
+							<h2 class="mb-0">
+								<button
+									class="btn collapsed btn-block text-dark customBtn"
+									type="button"
+									data-toggle="collapse"
+									data-target="#collapseThree"
+									aria-expanded="true"
+									aria-controls="collapseThree"
+								>
+									Amount
+									<i class="bi bi-chevron-compact-down float-right"></i>
+								</button>
+							</h2>
+						</div>
+						<div
+							id="collapseThree"
+							class="collapse"
+							aria-labelledby="headingThree"
+							data-parent="#accordionMain"
+						>
+							<div class="card-body">
+								<!-- amount range input -->
+								<!-- default value is 2 (normal) -->
+								<div class="amount-range">
+									<label for="amountRange"></label>
+
+									<input
+										type="range"
+										class="form-control-range"
+										id="amountRange"
+										min="1"
+										max="3"
+										value="2"
+									/>
+									<div class="row speedText">
+										<div class="col">Little</div>
+										<div class="col text-center">Normal</div>
+										<div class="col text-right">A lot</div>
+									</div>
+
+									<div id="resultAmount" class="text-center">
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 4. speed  -->
+					<div class="card custom">
+						<div class="card-header" id="headingFour">
+							<h2 class="mb-0">
+								<button
+									class="btn collapsed btn-block text-dark customBtn"
+									type="button"
+									data-toggle="collapse"
+									data-target="#collapseFour"
+									aria-expanded="false"
+									aria-controls="collapseFour"
+								>
+									Speed
+									<i class="bi bi-chevron-compact-down float-right"></i>
+								</button>
+							</h2>
+						</div>
+
+						<div
+							id="collapseFour"
+							class="collapse"
+							aria-labelledby="headingFour"
+							data-parent="#accordionMain"
+						>
+							<div class="card-body">
+								<!-- range slider -->
+								<!-- default value is 2 (between 5-10min) -->
+
+								<div class="speed-range">
+									
+									
+									
+									<input
+										type="range"
+										class="form-control-range"
+										id="speedRange"
+										min="1"
+										max="3"
+										value="2"
+									/>
+									<!-- </form> -->
+									<!-- speed text // need to change text for small screen  -->
+									<div class="row speedText">
+										<div class="col"> 	&#60; 5 min</div>
+										<div class="col text-center">5 - 10 min</div>
+										<div class="col text-right">&#62; 10 min</div>
+									</div>
+									<div id="resultSpeed" class="text-center">
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 5. comfort level -->
+					<div class="card custom">
+						<div class="card-header" id="headingFive">
+							<h2 class="mb-0">
+								<button
+									class="btn collapsed btn-block text-dark customBtn"
+									type="button"
+									data-toggle="collapse"
+									data-target="#collapseFive"
+									aria-expanded="true"
+									aria-controls="collapseFive"
+								>
+									Comfort level
+									<i class="bi bi-chevron-compact-down float-right"></i>
+								</button>
+							</h2>
+						</div>
+
+						<div
+							id="collapseFive"
+							class="collapse"
+							aria-labelledby="headingFive"
+							data-parent="#accordionMain"
+						>
+							<div class="card-body  row justify-content-center" id="comfortRating">
+								<!-- emoji radio select   -->
+								<!-- default value is 3 (okay) -->
+								
+									<div class="form-check form-check-inline  rating ">
+										<input
+
+											class="comfort form-check-input"
+											type="radio"
+											name="inlineRadioOptions"
+											id="comfortVeryUnhappy"
+											value="1"
+										/>
+										<label class="form-check-label" for="comfortVeryUnhappy"
+											><i class="bi bi-emoji-frown" style="font-size: 2rem"></i
+										></label>
+									</div>
+									<div class="form-check form-check-inline  rating ">
+										<input
+											class="comfort form-check-input"
+											type="radio"
+											name="inlineRadioOptions"
+											id="comfortUnhappy"
+											value="2"
+										/>
+										<label class="form-check-label" for="comfortUnhappy"
+											><i
+												class="bi bi-emoji-expressionless"
+												style="font-size: 2rem"
+											></i
+										></label>
+									</div>
+									<div class="form-check form-check-inline rating ">
+										<input
+											class="comfort form-check-input"
+											type="radio"
+											name="inlineRadioOptions"
+											id="comfortOkay"
+											value="3"
+										/>
+										<label class="form-check-label" for="comfortOkay"
+											><i
+												class="bi bi-emoji-neutral"
+												style="font-size: 2rem"
+											></i
+										></label>
+									</div>
+									<div class="form-check form-check-inline rating ">
+										<input
+											class="comfort form-check-input"
+											type="radio"
+											name="inlineRadioOptions"
+											id="comfortHappy"
+											value="4"
+										/>
+										<label class="form-check-label" for="comfortHappy"
+											><i class="bi bi-emoji-smile" style="font-size: 2rem"></i
+										></label>
+									</div>
+									<div class="form-check form-check-inline rating ">
+										<input
+											class="comfort form-check-input"
+											type="radio"
+											name="inlineRadioOptions"
+											id="comfortVeryHappy"
+											value="5"
+										/>
+										<label class="form-check-label" for="comfortVeryHappy">
+											<i
+												class="bi bi-emoji-sunglasses"
+												style="font-size: 2rem"
+											></i
+										></label>
+									</div>
+								
+
+								
+							</div>
+							<p class="text-center" id="resultComfort"></p>
+						</div>
+					</div>
+				</div>
+
+				<!-- edit / add buttons  -->
+				<div class="btn-group btnGroup">
+					{{!-- <button
+						type="submit"
+						
+						id="BM-modal-btn"
+						class="btn text-dark form-control custom"
+						data-toggle="modal" data-target="#viewEntry"
+					>
+						<span>
+							<i class="fas fa-edit"></i>
+						</span>
+						edit my day
+					</button> --}}
+					<button
+						type="submit"
+						id="BM-add-btn"
+						class="btn text-dark form-control custom"
+						
+						
+					>
+					
+					<span> <i class="fas fa-plus"></i></span>
+						Add my day
+					</button>
+				</div>
+				
+				
+			</div>
+			{{> footer}}
+		</div>
+
