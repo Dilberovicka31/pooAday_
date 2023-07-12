@@ -1,6 +1,7 @@
 const User = require("./user");
 const BM = require("./bm");
 const Report = require("./report");
+const bcrypt = require("bcrypt");
 
 BM.belongsTo(User, {
   foreignKey: "user_id",
