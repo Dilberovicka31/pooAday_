@@ -52,7 +52,7 @@ $("#addReport").on("click", () => {
     const sleep = $("#sleepRange").val();
     const medication = $("#exampleFormControlInput1").val();
     const note = $("#exampleFormControlTextarea1").val();
-    console.log("tecxt", {
+    console.log("text", {
       date: date,
       mood: mood,
       water: water,

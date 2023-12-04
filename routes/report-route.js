@@ -8,6 +8,8 @@ router.get("/api/members", isAuthenticated, (req, res) => {
       user_id: req.user.id,
     },
   }).then((result) => {
+    //serialize the data
+    result = result.map((result) => result.get({ plain: true }));
     res.json(result);
   });
 });
@@ -19,9 +21,8 @@ router.get("/myentry", isAuthenticated, (req, res) => {
     },
   })
     .then((dbresults) => {
-      const resultsObj = dbresults.map((dbresult) => dbresult.toJSON());
-      const results = { Reports: resultsObj };
-
+      const results = dbresults.map((result) => result.get({ plain: true }));
+      console.log(results);
       res.render("report", results);
     })
     .catch((err) => {

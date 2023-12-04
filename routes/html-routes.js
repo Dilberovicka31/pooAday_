@@ -18,9 +18,20 @@ router.get("/signup", (req, res) => {
   res.render("login");
 });
 
-// router.get("/myentry", isAuthenticated, (req, res) => {
-//   res.render("report");
-// });
+router.get("/myentry", isAuthenticated, (req, res) => {
+
+  //render all BM's and Reports to myentry.handlebars
+  db.BM.findAll({
+    where: {
+      user_id: req.user.id,
+    },
+    include: db.Report,
+  }).then((bm) => {
+    console.log(bm);
+    res.render("report", { bm });
+  });
+});
+
 router.get("/login", (req, res) => {
   if (req.user) {
     return res.redirect("/");
@@ -38,6 +49,16 @@ router.get("/members", isAuthenticated, async (req, res) => {
 
 router.get("/bm", isAuthenticated, (req, res) => {
   res.render("bm");
+});
+
+//add edit route
+router.get("/editEntry/:id", isAuthenticated, (req, res) => {
+  const id = req.params.id;
+  db.BM.findOne({
+    where: { id: id },
+  }).then((results) => {
+    res.render("edit", { results });
+  });
 });
 
 // router.get("/editEntry/:id", isAuthenticated, (req, res) => {

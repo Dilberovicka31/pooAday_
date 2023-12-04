@@ -7,7 +7,7 @@ router.get("/api/bm", isAuthenticated, (req, res) => {
     where: {
       user_id: req.user.id,
     },
-    include: Report,
+    // include: Report,
   }).then((bm) => {
     res.json(bm);
   });
@@ -15,73 +15,32 @@ router.get("/api/bm", isAuthenticated, (req, res) => {
 /////
 
 router.get("/myentry", isAuthenticated, (req, res) => {
+  //render all BM's and Reports to myentry.handlebars
   BM.findAll({
     where: {
-     user_id: req.user.id,
+      user_id: req.user.id,
     },
     include: Report,
-  }).then((dbresults) => {
-    const resultsObj = dbresults.map((dbresult) => dbresult.toJSON());
-
-    Report.findAll({
-      where: {
-      user_id: req.user.id,
-      },
-    }).then((report) => {
-      const reportObj = report.map((report) => {
-        switch (report.sleep) {
-          case "1":
-            report.sleep = "Very Little";
-            break;
-          case "2":
-            report.sleep = "Little";
-            break;
-          case "3":
-            report.sleep = "Moderate";
-            break;
-          case "4":
-            report.sleep = "Good";
-            break;
-          case "5":
-            report.sleep = "Very Good";
-            break;
-        }
-        switch (report.activity) {
-          case"1" :
-          report.activity ="Very little"
-          break;
-          case"2":
-          report.activity = "Little"
-          break;
-          case "3":
-          report.activity = "Moderate"
-          break;
-          case "4" :
-            report.activity = "Active"
-            break;
-            case "5" :
-              report.activity = "Vigorous"
-              break;
-        }
-        return report.toJSON();
-      });
-      const results = { BMs: resultsObj, Reports: reportObj };
-
-      //BMs to views
-      console.log(results, "ressrersresr");
-      ///// getting something... getting arrays
-
-      res.render("report", results);
-    });
+  }).then((bm) => {
+    //serialize the data
+    bm = bm.map((bm) => bm.get({ plain: true }));
+    console.log(bm);
+    res.render("report", { bm });
+  }
+  ).catch((err) => {
+    console.log(err);
+    res.status(401).json(err);
   });
-});
+}
+
+);
 
 router.post("/api/bm", isAuthenticated, (req, res) => {
-  console.log(req.user, "user");
-  console.log(req.params.id, "params");
+  console.log(req.user.id, "user");
+  
   // this returns undefined..................................
-  console.log(req.params, "paramsssss");
-  // retuns nothing..
+
+
 
   BM.create({
     date: req.body.date,
@@ -94,14 +53,15 @@ router.post("/api/bm", isAuthenticated, (req, res) => {
     speedRating: req.body.speedRating,
     comfort: req.body.comfort,
     comfortRating: req.body.comfortRating,
-    UserId: req.user.id,
+    user_id: req.user.id,
     include: Report,
   }).then((bm) => {
+    console.log(bm);
     res.json(bm);
   });
 });
 
-router.put("/api/bm", isAuthenticated, (req, res) => {
+router.put("/api/bm/:id", isAuthenticated, (req, res) => {
   console.log(req.body);
   BM.update(req.body, {
     where: {

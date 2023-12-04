@@ -186,7 +186,7 @@ $(document).ready(() => {
       UserId = "/?User_id=" + UserId;
     }
     $.get("/api/bm" + UserId, (data) => {
-      console.log("BMs", data);
+      // console.log("BMs", data);
       // showing correct data
       bms = data;
       //   console.log(bms[1].date);

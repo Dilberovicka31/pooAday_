@@ -3,14 +3,14 @@
 </div>
 <div class="row mt-5">
 
-	{{#if bm}}
+	{{#if BMs}}
 
 	<div class="card col-xl-4 col-lg-4 col-md-4  col-sm-6 mx-auto displayData shadow p-3 mb-5  rounded"
 		data-id="{{id}}">
 		<div class="card-body ">
 			<h3 class="text-center"> Bowel Movement Entry</h3>
 
-			{{#each bm}}
+			{{#each BMs}}
 
 			<ul class="list-group list-group-flush ">
 				<li class="list-group-item displayData">
@@ -52,13 +52,13 @@
 {{/if}}
 
 {{!-- <div class=""> --}}
-	{{#if results}}
+	{{#if Reports}}
 
 	<div class="card col-xl-4 col-lg-4 col-md-4  col-sm-6 mx-auto displayData shadow p-3 mb-5  rounded"
 		data-id="{{id}}">
 		<div class="card-body ">
 			<h3 class="text-center"> Wellness Data Entry</h3>
-			{{#each results}}
+			{{#each Reports}}
 
 			<ul class="list-group list-group-flush ">
 				<li class="list-group-item displayData">
@@ -73,7 +73,7 @@
 						Medication Intake: {{medication}} <br>
 						My Notes: {{note}}
 
-						<button type="submit" id="wellness-edit-btn" data-id="{{id}}"
+						<button type="submit" id="ellness-edit-btn" data-id="{{id}}"
 							class="btn text-dark form-control custom d-flex justify-content-center">
 							<span>
 								<i class="fas fa-edit"></i>
